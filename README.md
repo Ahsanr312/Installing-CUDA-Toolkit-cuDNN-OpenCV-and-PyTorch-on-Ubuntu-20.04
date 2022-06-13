@@ -5,7 +5,7 @@ The CUDA toolkit with your NVIDIA GPU can be a great tool that can harness the p
 
 ### INSTALLATION PROCEDURE
 
-#### 1. CONFIGURATION
+#### 01. CONFIGURATION
 - Running the following commands to setup Ubuntu.
 ```
 sudo apt-get update
@@ -22,3 +22,68 @@ sudo apt-get install -y python3-dev python3-tk python-imaging-tk
 sudo apt-get install -y linux-image-generic linux-image-extra-virtual
 sudo apt-get install -y linux-source linux-headers-generic
 ```
+
+#### 02. NVIDIA Setup (Driver, CUDA, cuDNN)
+##### A. Install NVIDIA Driver
+- Remove existing Nvidia drivers if any
+```
+sudo apt-get purge nvidia*
+```
+- Add Graphic Drivers PPA
+```
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+```
+- Search available drivers
+```
+ubuntu-drivers devices
+```
+- Install the driver with the best version
+```
+sudo apt-get install nvidia-driver-470
+```
+- Reboot your computer
+```
+reboot
+```
+- Check and verify GPU info
+```
+nvidia-smi
+```
+
+##### B. Install CUDA Toolkit 11.4.0
+- Choose your CUDA Toolkit version from the link. Click the version you want to install and select your Target platform in terms of Operating System, 
+Architecture, Distribution, Version and Installer Type. In my case "Linux -> x86_64 -> Ubuntu -> 20.04 -> deb (local)
+```
+https://developer.nvidia.com/cuda-toolkit-archive
+```
+- Installation Instructions:
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.0-470.42.01-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.0-470.42.01-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+```
+- Now set environment variables in the `~/.bashrc`.
+```
+sudo nano ~/.bashrc
+```
+- Add the following at the end of `~/.bashrc`
+```
+export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export CUDA_HOME=/usr/local/cuda
+```
+
+##### C. Install cuDNN
+- Choose your cuDNN version from the link and make sure it is compatible with the CUDA version that you installed above. Click the version you want to install it will drop down the menu redirect you to NVIDIA account registration (which is free and must to download cuDNN). In my case cuDNN v8.2.2 is the one to download
+```
+https://developer.nvidia.com/rdp/cudnn-archive
+```
+
+
+
+
