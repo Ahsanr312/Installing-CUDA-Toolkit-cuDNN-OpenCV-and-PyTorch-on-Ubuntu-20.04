@@ -1,4 +1,4 @@
-# Installing-CUDA-Toolkit-cuDNN-OpenCV-and-PyTorch-on-Ubuntu-20.04
+# Installing CUDA-Toolkit, cuDNN, OpenCV and PyTorch on Ubuntu-20.04
 This repository is tested with NVIDIA GeForce GTX 1080 and NVIDIA RTX 3060 Ti on Ubuntu 20.04 LTS. 
 The CUDA toolkit with your NVIDIA GPU can be a great tool that can harness the power of GPU to produce fast applications. Though, it is always challenging to install a CUDA toolkit and other libraries that needs to interact with your NVIDIA GPU on an Ubuntu machine. This repository will help you install and test the GPU processing. 
 
