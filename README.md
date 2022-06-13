@@ -79,11 +79,35 @@ export CUDA_HOME=/usr/local/cuda
 ```
 
 ##### C. Install cuDNN
-- Choose your cuDNN version from the link and make sure it is compatible with the CUDA version that you installed above. Click the version you want to install it will drop down the menu redirect you to NVIDIA account registration (which is free and must to download cuDNN). In my case cuDNN v8.2.2 is the one to download
+- Choose your cuDNN version from the link and make sure it is compatible with the CUDA version that you installed above. In my case cuDNN v8.2.2 is the one to download. Click the version you want to install it will drop down the menu.
 ```
 https://developer.nvidia.com/rdp/cudnn-archive
 ```
-
-
-
+- Select the following, it will redirect you to NVIDIA account registration (which is free and must to download cuDNN). 
+```
+cuDNN Runtime Library for Ubuntu20.04 x86_64 (Deb)
+cuDNN Developer Library for Ubuntu20.04 x86_64 (Deb)
+cuDNN Code Samples and User Guide for Ubuntu20.04 x86_64 (Deb)
+```
+- After downloading, you should have the following three .deb files
+```
+libcudnn8_8.2.2.26–1+cuda11.4_amd64.deb
+libcudnn8-dev_8.2.2.26–1+cuda11.4_amd64.deb
+libcudnn8-samples_8.2.2.26–1+cuda11.4_amd64.deb
+```
+- Install using dpkg commands
+```
+sudo dpkg -i libcudnn8_8.2.2.26–1+cuda11.4_amd64.deb
+sudo dpkg -i libcudnn8-dev_8.2.2.26–1+cuda11.4_amd64.deb
+sudo dpkg -i libcudnn8-samples_8.2.2.26–1+cuda11.4_amd64.deb
+```
+- Reboot your computer
+```
+reboot
+```
+- To verify the installation
+```
+nvidia-smi
+nvcc --version
+```
 
