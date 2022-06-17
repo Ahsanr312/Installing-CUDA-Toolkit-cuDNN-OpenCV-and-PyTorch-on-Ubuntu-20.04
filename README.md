@@ -244,7 +244,7 @@ os.path.join('/usr/local/lib/python3.8/dist-packages/cv2', 'python-3.8')
 ```
 pip install torch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0
 ```
-- Test OpenCV installation
+- Test PyTorch installation
 
 
 ![My Image](Images/pytorch.png)
