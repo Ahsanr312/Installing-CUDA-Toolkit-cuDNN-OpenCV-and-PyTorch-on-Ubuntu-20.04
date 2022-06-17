@@ -239,8 +239,13 @@ os.path.join('/usr/local/lib/python3.8/dist-packages/cv2', 'python-3.8')
 ![My Image](Images/opencv.png)
 
 
+#### 03. PyTorch 1.8.0 with cuda 10.2 Installation
+- Follow the mentioned link for custom version installation: https://pytorch.org/get-started/previous-versions/
+```
+pip install torch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0
+```
+- Test OpenCV installation
 
 
-
-
+![My Image](Images/pytorch.png)
 
