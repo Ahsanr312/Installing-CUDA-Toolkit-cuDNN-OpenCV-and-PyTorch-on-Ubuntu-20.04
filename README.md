@@ -115,7 +115,7 @@ nvcc --version
 ```
 
 
-![My Image](Images/nvcc --version.png)
+![My Image](Images/nvcc--version.png)
 
 #### 03. OpenCV 4.5.2 Installation
 - Install and Update the system
