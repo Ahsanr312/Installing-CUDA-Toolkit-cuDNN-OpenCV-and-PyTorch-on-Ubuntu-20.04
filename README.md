@@ -170,7 +170,7 @@ echo "Edit ~/.bashrc"
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
-mkvirtualenv cv -p python3
+mkvirtualenv AIenv -p python3
 pip install numpy
 ```
 - Direct to OpenCV folder and make a build directory for further installations
@@ -199,8 +199,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
 -D OPENCV_PC_FILE_NAME=opencv.pc \
 -D OPENCV_ENABLE_NONFREE=ON \
--D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages \
--D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
+-D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/AIenv/lib/python3.8/site-packages \
+-D PYTHON_EXECUTABLE=~/.virtualenvs/AIenv/bin/python \
 -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib-4.5.2/modules \
 -D INSTALL_PYTHON_EXAMPLES=OFF \
 -D INSTALL_C_EXAMPLES=OFF \
@@ -217,7 +217,18 @@ sudo make install
 sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 sudo ldconfig
 ```
-- If you want to have available opencv python bindings in the system environment you should copy the created folder during the installation of OpenCV (* -D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages *) into the dist-packages folder of the target python interpreter:
+- For linking opencv python bindings in the system environment you should copy the created folder during the installation of OpenCV (* -D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/AIenv/lib/python3.8/site-packages *) into the dist-packages folder of the target python interpreter:
+```
+sudo cp -r ~/.virtualenvs/AIenv/lib/python3.8/site-packages/cv2 /usr/local/lib/python3.8/dist-packages
+ 
+sudo nano /usr/local/lib/python3.8/dist-packages/cv2/config-3.8.py 
+
+``` 
+    PYTHON_EXTENSIONS_PATHS = [
+    os.path.join('/usr/local/lib/python3.8/dist-packages/cv2', 'python-3.8')
+    ] + PYTHON_EXTENSIONS_PATHS
+``` 
+```
 
 
 
