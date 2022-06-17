@@ -51,6 +51,9 @@ reboot
 nvidia-smi
 ```
 
+
+![My Image](Images/nvidia-smi.png)
+
 ##### B. Install CUDA Toolkit 11.4.0
 - Choose your CUDA Toolkit version from the link. Click the version you want to install and select your Target platform in terms of Operating System, 
 Architecture, Distribution, Version and Installer Type. In my case "Linux -> x86_64 -> Ubuntu -> 20.04 -> deb (local)
@@ -110,6 +113,9 @@ reboot
 nvidia-smi
 nvcc --version
 ```
+
+
+![My Image](Images/nvcc --version.png)
 
 #### 03. OpenCV 4.5.2 Installation
 - Install and Update the system
